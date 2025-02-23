@@ -5,6 +5,7 @@ create table personas (
     materno varchar(100) not null,
     ci varchar(20) not null,
     fecha_nacimiento varchar(100) not null,
+    img varchar(255),
     correo_electronico varchar(100) unique not null,
     sexo varchar(2),
     estado boolean,

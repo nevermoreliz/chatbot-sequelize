@@ -1,16 +1,23 @@
 const { adapterDB } = require('../../provider/database');
 const { handleHttpError } = require('../utils/handleError');
 
-const getUser = async (req, res) => {
+const getUsuario = async (req, res) => {
     try {
+
+        res.json({
+            ok: true,
+            data: 'Usuario'
+        });
 
     } catch (error) {
         handleHttpError(res, 'ERROR_GET_USUARIO_DETALLE')
     }
 };
 
-const getUsers = async (req, res) => {
+const getUsuarios = async (req, res) => {
     try {
+
+       
 
     } catch (error) {
         handleHttpError(res, 'ERROR_GET_USUARIOS')
@@ -19,20 +26,28 @@ const getUsers = async (req, res) => {
 
 const createUsuario = async (req, res) => {
     try {
+
+
+        console.log(req.body);
         
+
+        res.json({
+            ok: true,
+            data: 'Crear Usuario'
+        });
 
     } catch (error) {
         handleHttpError(res, 'ERROR_CREATE_USUARIO')
     }
 };
-const updateUser = async (req, res) => {
+const updateUsuario = async (req, res) => {
     try {
 
     } catch (error) {
         handleHttpError(res, 'ERROR_UPDATE_USUARIO')
     }
 };
-const deleteUser = async (req, res) => {
+const deleteUsuario = async (req, res) => {
     try {
 
     } catch (error) {
@@ -40,4 +55,4 @@ const deleteUser = async (req, res) => {
     }
 };
 
-module.exports = { getUser, getUsers, createUsuario, updateUser, deleteUser }
+module.exports = { getUsuario, getUsuarios, createUsuario, updateUsuario, deleteUsuario }

@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+var cors = require('cors');
 
 const PORT = process.env.PORT ?? 4000;
 
@@ -20,13 +21,15 @@ class ServerBotAPI {
       req.db = this.providerDB
       next()
     }
-    app.use(express.json())
 
-    /**
-     * aqui invocamos a las rutas
-     */
-      app.use("/api", middleware, require("./routes"));
+    // configurar CORS
+    app.use(cors());
+    // lectura y parseo del body
+    app.use(express.json());
 
+
+    // aqui invocamos a las rutas
+    app.use("/api", middleware, require("./routes"));
 
     // app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
     app.listen(PORT, () => console.log(`http://localhost:${PORT}/api/qr`));

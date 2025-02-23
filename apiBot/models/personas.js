@@ -23,6 +23,9 @@ const Persona = adapterSequelizeDB.define('personas',
         fecha_nacimiento: {
             type: DataTypes.STRING
         },
+        img: {
+            type: DataTypes.STRING
+        },
         correo_electronico: {
             type: DataTypes.STRING
         },
