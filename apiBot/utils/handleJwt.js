@@ -1,20 +1,21 @@
 const jwt = require('jsonwebtoken')
 const JWT_SECRET = process.env.JWT_SECRET
 /**
- * Debe pasar el objeto del usuario
+ * Debe pasar el id de usuario para generar JWT
  * @param {*} usuario
  */
-const tokenSing = async (usuario) => {
+const tokenSing = async (id_usuario) => {
+
+    const payload ={
+        id: id_usuario
+    }
+
     const sing = jwt.sign(
-        {
-            id: usuario.id_usuario,
-            // rol: usuario.rol
-        },
+        payload,
         JWT_SECRET,
-        {
-            expiresIn: "2h"
-        }
+        { expiresIn: "2h" }
     );
+
 
     return sing
 

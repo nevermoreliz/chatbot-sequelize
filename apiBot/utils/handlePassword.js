@@ -5,7 +5,9 @@ const bcryptjs = require('bcryptjs')
  * @param {*} contraseniaPlano 
  */
 const encrypt = async (contraseniaPlano) => {
-    const hash = await bcryptjs.hash(contraseniaPlano, 10)
+    const salt = bcryptjs.genSaltSync();
+    // const hash = await bcryptjs.hash(contraseniaPlano, 10)
+        const hash = await bcryptjs.hashSync(contraseniaPlano, salt)
     return hash
 }
 
@@ -15,6 +17,7 @@ const encrypt = async (contraseniaPlano) => {
  * @param {*} hashContrasenia 
  */
 const compare = async (contraseniaPlano, hashContrasenia) => {
+    // return await bcryptjs.compare(contraseniaPlano, hashContrasenia)
     return await bcryptjs.compare(contraseniaPlano, hashContrasenia)
 }
 

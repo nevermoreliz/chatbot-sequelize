@@ -2,11 +2,15 @@ const { adapterDB } = require('../../provider/database');
 const { handleHttpError } = require('../utils/handleError');
 const { matchedData } = require('express-validator');
 const Persona = require('../models/personas');
+const { handleResponseJsonMsg } = require('../utils/handleResponseJson');
 
 const getPersona = async (req, res) => {
 
     try {
 
+        console.log(req.usuario);
+
+        handleResponseJsonMsg(res, 200, 'aqui')
 
     } catch (error) {
         // console.log(error);
@@ -30,13 +34,14 @@ const getPersonas = async (req, res) => {
 
 
         /* ------------------- sacar el usuario del token o sesion ------------------ */
-        // const userToken = req.usuario
+        const userToken = req.usuario
 
         const personas = await Persona.findAll()
 
         res.status(200).json({
             ok: true,
-            data: personas
+            data: personas,
+            sesionUser: userToken
         })
 
     } catch (error) {

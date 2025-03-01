@@ -18,7 +18,8 @@ const Persona = adapterSequelizeDB.define('personas',
             type: DataTypes.STRING
         },
         ci: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            unique: true
         },
         fecha_nacimiento: {
             type: DataTypes.STRING
@@ -27,7 +28,8 @@ const Persona = adapterSequelizeDB.define('personas',
             type: DataTypes.STRING
         },
         correo_electronico: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
+            unique: true
         },
         sexo: {
             type: DataTypes.STRING,
